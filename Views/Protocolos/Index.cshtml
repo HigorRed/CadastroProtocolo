@@ -1,0 +1,37 @@
+@model IEnumerable<Protocolo>
+
+<h2>Lista de Protocolos</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Novo Protocolo</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Status</th>
+            <th>Data Abertura</th>
+            <th>Data Fechamento</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var protocolo in Model)
+        {
+            <tr>
+                <td>@protocolo.Titulo</td>
+                <td>@protocolo.Descricao</td>
+                <td>@protocolo.Status</td>
+                <td>@protocolo.DataAbertura?.ToString("dd/MM/yyyy")</td>
+                <td>@protocolo.DataFechamento?.ToString("dd/MM/yyyy")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@protocolo.Id" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Details" asp-route-id="@protocolo.Id" class="btn btn-info btn-sm">Detalhes</a>
+                    <a asp-action="Delete" asp-route-id="@protocolo.Id" class="btn btn-danger btn-sm">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

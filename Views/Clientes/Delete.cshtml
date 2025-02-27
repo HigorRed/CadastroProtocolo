@@ -1,0 +1,18 @@
+@model Cliente
+
+<h2>Excluir Cliente</h2>
+
+<h4>Tem certeza que deseja excluir este cliente?</h4>
+
+<div>
+    <h5>@Model.Nome</h5>
+    <p>Email: @Model.Email</p>
+    <p>Telefone: @Model.Telefone</p>
+    <p>Endereço: @Model.Endereco</p>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="IdCliente" />
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
